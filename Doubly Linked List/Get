@@ -1,0 +1,29 @@
+DLL: Get
+Implement the get method for the DoublyLinkedList class that retrieves a node at a specific index in the list.
+
+The method should perform the following tasks:
+
+If the given index is out of bounds (i.e., it is less than 0 or greater than or equal to the list length), return None.
+
+Initialize a temporary variable, temp, to point to the head of the list.
+
+If the index is less than half of the list length, iterate through the list from the head, updating the temp variable until the desired index is reached.
+
+If the index is greater than or equal to half of the list length, start iterating from the tail of the list, updating the temp variable until the desired index is reached.
+
+Return the node at the desired index (i.e., the temp variable).
+
+solution:
+
+def get(self,index):
+        if index < 0 or index >= self.length:
+            return None
+        temp = self.head
+        if index < self.length/2:
+            for _ in range(index):
+                temp = temp.next
+        else:
+            temp = self.tail
+            for _ in range(self.length - 1,index,-1):
+                temp = temp.prev
+        return temp
