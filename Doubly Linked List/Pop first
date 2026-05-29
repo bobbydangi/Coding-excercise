@@ -1,0 +1,38 @@
+DLL: Pop First
+Implement the pop_first method that removes the first node from the list and returns it.
+
+The method should perform the following tasks:
+
+If the list is empty (i.e., the length is 0), return None.
+
+Store a reference to the current head node in a temporary variable.
+
+If the list has only one node (i.e., the length is 1), set both the head and tail of the list to None.
+
+If the list has more than one node, perform the following steps:
+
+Update the head of the list to be the next node of the current head.
+
+Set the prev attribute of the new head node to None.
+
+Set the next attribute of the removed node (stored in the temporary variable) to None.
+
+Decrement the length attribute of the list by 1.
+
+Return the removed node (stored in the temporary variable).
+
+solution:
+
+ def pop_first(self):
+        if self.length == 0:
+            return None
+        temp = self.head
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            self.head = self.head.next
+            self.head.prev = None
+            temp.next = None
+        self.length -= 1
+        return temp
