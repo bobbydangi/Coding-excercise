@@ -1,0 +1,18 @@
+Implement the set_value method for the DoublyLinkedList class that updates the value of a node at a specific index in the list.
+
+The method should perform the following tasks:
+
+Call the get method with the given index to retrieve the node at the specified index. Store the result in a temporary variable, temp.
+
+If the temp variable contains a valid node (i.e., it is not None), update the node's value attribute with the provided value and return True.
+
+If the temp variable does not contain a valid node (i.e., it is None), return False to indicate that the operation was unsuccessful.
+
+solution:
+
+def set_value(self,index,value):
+        temp = self.get(index)
+        if temp:
+            temp.value = value
+            return True
+        return False
