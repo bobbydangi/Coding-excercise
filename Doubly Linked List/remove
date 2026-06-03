@@ -1,0 +1,36 @@
+DLL: Remove
+Implement the remove method for the DoublyLinkedList class that removes a node at a specific index in the list and returns it.
+
+The method should perform the following tasks:
+
+If the given index is out of bounds (i.e., it is less than 0 or greater than or equal to the list length), return None.
+
+If the index is 0, call the pop_first method and return its result.
+
+If the index is equal to the list length minus 1, call the pop method and return its result.
+
+Call the get method with the given index to retrieve the node to be removed, and store the result in a temporary variable, temp.
+
+Update the prev attribute of the temp.next node and the next attribute of the temp.prev node to remove temp from the list.
+
+Set the next and prev attributes of the temp node to None.
+
+Decrement the length attribute of the list by 1.
+
+Return the removed node (i.e., the temp variable).
+
+Solution:
+def remove(self,index):
+        if index<0 or index>=self.length:
+            return None
+        if index == 0:
+            return self.pop_first()
+        if index == self.length-1:
+            return self.pop()
+        temp = self.get(index)
+        temp.prev.next = temp.next
+        temp.next.prev = temp.prev
+        temp.prev = None
+        temp.next = None
+        self.length -=1
+        return temp
